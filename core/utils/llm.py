@@ -39,7 +39,7 @@ def analyze_document(text: str) -> dict:
         raise ValueError("Empty text provided for analysis")
 
     # Token limit ke liye trim karo
-    max_chars = 3000
+    max_chars = 1500
     if len(text) > max_chars:
         text = text[:max_chars] + "\n\n[Document truncated...]"
 
@@ -48,7 +48,7 @@ def analyze_document(text: str) -> dict:
         prompt = SUMMARY_PROMPT_TEMPLATE.replace("{text}", text)
 
         response = client.chat.completions.create(
-            model="openai/gpt-oss-120b",
+            model="allam-2-7b",
             messages=[
                 {
                     "role": "system",
@@ -60,7 +60,7 @@ def analyze_document(text: str) -> dict:
                 }
             ],
             temperature=0.1,
-            max_tokens=8000,
+            max_tokens=1024,
         )
 
         raw = response.choices[0].message.content
