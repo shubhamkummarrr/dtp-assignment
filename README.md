@@ -208,3 +208,8 @@ Upload File → Save to DB (pending)
 
 - ✅ **Celery Background Processing** — Async document processing
 - ✅ **Docker Support** — Dockerfile + docker-compose.yml
+
+  ## ⚠️ Important Notes
+- Groq API free key required: https://console.groq.com
+- Model used: `allam-2-7b` 
+- Free tier TPM limit: documents are processed one at a time
